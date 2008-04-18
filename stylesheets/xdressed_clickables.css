@@ -1,0 +1,120 @@
+ 
+/* ------------------------ BEGIN: link-as-button ----------------------------- 
+  
+  Start by enforcing a consistent x-browser button style. To that end we are 
+  styling three classes in one style definition: 1. button, 2. submit and 
+  3. link-as-button. Here's some example usage...
+  
+  <input type='button' class='button' value='press me' />
+  
+  <input type='submit' class='submit' value='submit me' /> 
+  
+  <a href='someurl' class='link-as-button'>I look like a button!</a> 
+  
+*/
+
+  input.submit,
+  input.button, 
+  a.link-as-button, 
+  a.link-as-button:hover, 
+  a.link-as-button:visited {
+      text-decoration: none;
+      cursor: default;
+      font: 12px arial;
+      padding: 2px 3px;  
+      color: #000; 
+      background-color: #eee; 
+      border-width: 2px;
+      border-style: solid; 
+      border-color: #ddd #888 #888 #ddd;
+      /* correct ie padding and alignment */
+      vertical-align: middle;
+      width:auto;
+      overflow:visible; 
+  }
+
+  /* Remove extra 1px pad browsers give <INPUT>s by applying exactly 
+    1px less than our above styles for <A CLASS='link-as-button'> */
+  input.submit, 
+  input.button {
+    padding: 1px 2px; 
+  }
+
+/* ------------------------ END: link-as-button ----------------------------- */
+
+
+
+
+/* ------------------------ BEGIN: button-as-link ------------------------ */
+    
+    /* Enforce a consistent x-browser link style.*/
+    a { 
+      font-size: inherit;
+      font-family: inherit;
+      color: #009; }
+        
+    a:hover { 
+      color: #00f; } 
+    
+    /* Apply our link styles to a button */
+    input.button-as-link {
+      /* Remove buttonisms */
+      border: none; 
+      margin: 0px 1px;
+      padding:0px;
+      /* Add linkisms */
+      font-size: inherit;
+      font-family: inherit;
+      color: #009;
+      cursor:pointer; 
+      /* Correct padding in ie */
+      width:auto;
+      overflow:visible; 
+      /* The underline challenge:
+            - There's no support for 'text-decoration: underline' in <inputs type='button'>.
+            - Using 'border-bottom: 1px' proves to create vertical alignment issues in x-browser testing.
+            - Using a bg image for the underline works great! */
+      background:transparent url(../images/underline_blue_009.gif) repeat-x scroll 1% 90%; 
+    }
+    
+    input.button-as-link:hover {
+      color: #00f;
+      background:transparent url(../images/underline_blue_00f.gif) repeat-x scroll 1% 90%;
+    }
+    
+    
+    /* Apply 3 Filters the  to adjust the above styles in:
+        1) SAFARI: pull the underline image up 5% more */
+     html[xmlns*=""] body:last-child input.button-as-link, 
+     html[xmlns*=""] body:last-child input.button-as-link:hover { 
+        background-position: 1% 95%; 
+      }
+        
+      /* 2) IE7: Adjust the font to match a text link, 
+            and pull the underline up 10% more */
+    *:first-child+html input.button-as-link, 
+    *:first-child+html input.button-as-link:hover {
+      background-position: 1% 85%;
+      vertical-align: -10%;
+      font-family: times;
+      font-size: medium;
+    }
+    
+    /* 3) IE6>: Repeat the above IE7 adjustments but use 
+          the *html filter to target IE6 and under. */
+    * html input.button-as-link, 
+    * html input.button-as-link:hover {
+      background-position: 1% 85%;
+      vertical-align: -10%;
+      font-family: times;
+      font-size: medium;
+    }
+    
+    /*  Finally, we might not be able to make the rails <form class='button-to'> 
+        display inline, but lets at least cut out any extra space it takes up. */
+    form.button-to{
+      padding: 0px;
+      margin: 0px; 
+    }
+
+/* ------------------------ END: button-as-link ------------------------ */

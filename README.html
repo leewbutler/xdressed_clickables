@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>
+      README
+    </title>
+    <link href="stylesheets/xdressed_clickables.css" media="screen" rel="stylesheet" type="text/css" />
+    <style type="text/css"> 
+    table#xdresser{
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    }
+    table#xdresser th{
+    background-color: #eee; 
+    }
+    table#xdresser td, table#xdresser th{
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    padding: 5px; 
+    } 
+    </style>
+  </head>
+  <body>
+ 
+      <h2>
+        <a name='usage' class='section_hdr' id="usage">Usage</a>
+      </h2>
+      <table id="xdresser" cellpadding='0' cellspacing='0'>
+        <tr>
+          <th>
+            about
+          </th>
+          <th>
+            x-dresser
+          </th>
+          <th>
+            code
+          </th>
+        </tr>
+        <tr>
+          <td>
+            A normal button looks different in each browser. Maybe round or square, blue, etc...
+          </td>
+          <td class='center'>
+            <input type="button" value="button">
+          </td>
+          <td>
+            <code>&lt;input type="button"&gt;</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Instead we'll use this button. It is styled to look the same in all browsers...
+          </td>
+          <td class='center'>
+            <input type="button" value="standardized button" class="button">
+          </td>
+          <td>
+            <code>&lt;input type="button" class="button"&gt;</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ...this allows us to apply the same styles to make a link appear to be a button.
+          </td>
+          <td class='center'>
+            <a href="#" class='link-as-button'>link as button</a>
+          </td>
+          <td>
+            <code>&lt;a href="#" class="link-as-button"&gt;&lt;a&gt;</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Likewise our links styles are defined to ensure x-browser consistency...<br>
+          </td>
+          <td class='center'>
+            <a href="#">link</a>
+          </td>
+          <td>
+            <code>&lt;a href="#"&gt;&lt;a&gt;</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ...which allows us to make a button appear to be a link
+          </td>
+          <td class='center'>
+            <input type="button" value="button as link" class="button-as-link">
+          </td>
+          <td>
+            <code>&lt;input type="button" class="button-as-link"&gt;</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ...and a submit button too.
+          </td>
+          <td class='center'>
+            <input type="submit" value="submit button as link" class="button-as-link">
+          </td>
+          <td>
+            <code>&lt;input type="submit" class="button-as-link"&gt;</code>
+          </td>
+        </tr>
+      </table>
+      <h2>
+        <a name='contextual' class='section_hdr' id="contextual">Test Alignment With Text</a>
+      </h2>
+      <p>
+        This line tests <input type="button" class="" value="button"> <input type="button" value="standardize button" class="button"> <a href="#" class="link-as-button">link as button</a> the vertical alignment of our x-dressers <a href="#" class="">link</a> <input type="button" class="button-as-link" value="button as link"> <input type="submit" class="button-as-link" value="submit button as link"> relative to the surrounding text. Looks great!
+      </p>
+      <h2>
+        <a name='buttonto' class='section_hdr' id="buttonto">Test With Button_to Helper</a>
+      </h2>
+      <p>
+        Lets also test x-dressing when applied to the RubyOnRails button_to helper. We'll perform the test amidst a crowd of actual links that are none the wiser.
+      </p>
+      
+      <a href="someurlhere">Actual link that is none the wiser.</a><br>
+      <form method="post" class="button-to" action='post'><div><input name="_method" type="hidden" value="delete"><input type="submit" class="button-as-link" value="Button_to, x-dressed and blending right in."></div></form>
+      <a href="#">Actual link that is none the wiser.</a>
+      <p>
+        Looking good girl! However the button_to that is x-dressing above would be outed if asked to appear inline instead. This is because the RubyOnRails button_to helper wraps the button in a &lt;form&gt; tag. The form tag forces a line break in the display, both above and below our button. But otherwise our button is looking just like your average everyday link!
+      </p>
+      <h2>
+        <a name='xbrowsershots' class='section_hdr' id="xbrowsershots">Test Results In Major Browsers</a>
+      </h2>
+      <ul>
+        <li>
+          <a href='dev/browsertests/screenshot_cdc_pcfirefox2.jpg' target='_blank'>x-dressing on a pc with firefox 2.0</a>
+        </li>
+        <li>
+          <a href='dev/browsertests/screenshot_cdc_pcie7.jpg' target='_blank'>x-dressing on a pc with ie 7.0</a>
+        </li>
+        <li>
+          <a href='dev/browsertests/screenshot_cdc_pcie6.jpg' target='_blank'>x-dressing on a pc with ie 6.0</a>
+        </li>
+        <li>
+          <a href='dev/browsertests/screenshot_cdc_macfirefox2.jpg' target='_blank'>x-dressing on a mac with firefox 2.0</a>
+        </li>
+        <li>
+          <a href='dev/browsertests/screenshot_cdc_macsafari31.jpg' target='_blank'>x-dressing on a mac with safari 3.1</a>
+        </li>
+      </ul>
+ 
+  </body>
+</html>
